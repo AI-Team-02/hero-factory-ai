@@ -1,0 +1,39 @@
+# General Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+
+# ComfyUI specific directories
+ComfyUI/models/
+ComfyUI/custom_nodes/
+ComfyUI/__pycache__/
+ComfyUI/*.py[cod]
+ComfyUI/output/
+ComfyUI/input/
+!ComfyUI/input/example.png
+ComfyUI/temp/
+!ComfyUI/custom_nodes/example_node.py.example
+ComfyUI/extra_model_paths.yaml
+ComfyUI/.vs
+ComfyUI/.vscode/
+ComfyUI/.idea/
+ComfyUI/venv/
+ComfyUI/.venv/
+ComfyUI/web/extensions/*
+!ComfyUI/web/extensions/logging.js.example
+!ComfyUI/web/extensions/core/
+ComfyUI/tests-ui/data/object_info.json
+ComfyUI/user/
+ComfyUI/*.log
+ComfyUI/web_custom_versions/
+ComfyUI/.DS_Store
