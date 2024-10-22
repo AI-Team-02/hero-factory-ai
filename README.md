@@ -13,7 +13,7 @@
 * [ComfyUI Custom Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts) (#62)
 * [Comfyroll Studio](https://github.com/RockOfFire/ComfyUI_Comfyroll_CustomNodes) (#80)
 * [KJNodes for ComfyUI](https://github.com/kijai/ComfyUI-KJNodes) (#252)
-* [Crystools](https://github.com/space-nuko/ComfyUI-Crystools) (#492)
+* [Crystools](https://github.com/crystian/ComfyUI-Crystools) (#492)
 * [ComfyUI-tbox](https://github.com/theroyallab/ComfyUI-tbox) (#1200)
 
 ## Models
