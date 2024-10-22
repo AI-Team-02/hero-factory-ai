@@ -38,8 +38,7 @@ async def queue_prompt(prompt_data):
         return response.json()
 
 async def get_image(prompt_id):
-    max_attempts = 30
-    for _ in range(max_attempts):
+    while True:  # 무한 루프로 변경
         async with httpx.AsyncClient() as client:
             response = await client.get(f"{COMFY_UI_URL}/history/{prompt_id}")
             response.raise_for_status()
@@ -47,8 +46,7 @@ async def get_image(prompt_id):
             
             if prompt_id in data and "outputs" in data[prompt_id]:
                 return data[prompt_id]["outputs"]
-        await asyncio.sleep(1)
-    raise TimeoutError(f"Image generation timed out after {max_attempts} seconds")
+        await asyncio.sleep(1)  # 1초 대기 후 다시 확인
 
 @app.post("/generate-image")
 async def generate_image(image: UploadFile = File(...), prompt: str = Form(...)):
