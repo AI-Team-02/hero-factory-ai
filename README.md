@@ -14,7 +14,7 @@
 * [Comfyroll Studio](https://github.com/RockOfFire/ComfyUI_Comfyroll_CustomNodes) (#80)
 * [KJNodes for ComfyUI](https://github.com/kijai/ComfyUI-KJNodes) (#252)
 * [Crystools](https://github.com/crystian/ComfyUI-Crystools) (#492)
-* [ComfyUI-tbox](https://github.com/theroyallab/ComfyUI-tbox) (#1200)
+* [ComfyUI-tbox](https://github.com/ai-shizuka/ComfyUI-tbox) (#1200)
 
 ## Models
 이 프로젝트를 실행하기 위해서는 다음 모델들이 필요합니다.
