@@ -19,6 +19,7 @@ ComfyUI/custom_nodes/
 ComfyUI/__pycache__/
 ComfyUI/*.py[cod]
 ComfyUI/output/
+ComfyUI/upload/
 ComfyUI/input/
 !ComfyUI/input/example.png
 ComfyUI/temp/
