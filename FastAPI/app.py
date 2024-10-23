@@ -90,4 +90,4 @@ async def generate_image(image: UploadFile = File(...), prompt: str = Form(...))
 if __name__ == "__main__":
     import uvicorn
     logger.info("Starting the server")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=28000)
