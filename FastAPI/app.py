@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 COMFY_UI_URL = "http://127.0.0.1:8188"
-WORKFLOW_PATH = os.path.abspath("../ComfyUI/workflow/2D_game_object_API.json")
+WORKFLOW_PATH = os.path.abspath("../ComfyUI/workflow/2d_game_object_defualt_api.json")
 OUTPUT_DIR = os.path.abspath("../ComfyUI/output")
 UPLOAD_DIR = os.path.abspath("../ComfyUI/upload")
 
@@ -62,7 +62,9 @@ async def generate_image(image: UploadFile = File(...), prompt: str = Form(...))
         with io.open(WORKFLOW_PATH, 'r', encoding='utf-8') as file:
             workflow = json.load(file)
         
+        # CLIP Text Encode (Prompt)
         workflow["172"]["inputs"]["prompt"] = prompt
+        # Load Image
         workflow["186"]["inputs"]["image"] = image_path
 
         result = await queue_prompt(workflow)
@@ -71,7 +73,7 @@ async def generate_image(image: UploadFile = File(...), prompt: str = Form(...))
         
         output = await get_image(prompt_id)
         
-        # 생성된 이미지 파일명 직접 가져오기
+        # 생성된 이미지 파일명 직접 가져오기 (Save Image)
         generated_image_filename = output["187"]["images"][0]["filename"]
         
         image_path = os.path.join(OUTPUT_DIR, generated_image_filename)
