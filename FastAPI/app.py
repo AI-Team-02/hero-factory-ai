@@ -2,6 +2,7 @@
 from fastapi import FastAPI, HTTPException, File, UploadFile, Form
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 import json
 import httpx
 import asyncio
@@ -9,6 +10,12 @@ import os
 from uuid import uuid4
 import io
 import logging
+
+# 환경변수 처리
+load_dotenv()
+
+# 환경변수에서 API 키 가져오기
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -24,7 +31,7 @@ app.add_middleware(
 )
 
 COMFY_UI_URL = "http://127.0.0.1:8188"
-WORKFLOW_PATH = os.path.abspath("../ComfyUI/workflow/2D_game_object_API.json")
+WORKFLOW_PATH = os.path.abspath("../ComfyUI/workflow/2D_game_object_gemini_api.json")
 OUTPUT_DIR = os.path.abspath("../ComfyUI/output")
 UPLOAD_DIR = os.path.abspath("../ComfyUI/upload")
 
@@ -62,8 +69,9 @@ async def generate_image(image: UploadFile = File(...), prompt: str = Form(...))
         with io.open(WORKFLOW_PATH, 'r', encoding='utf-8') as file:
             workflow = json.load(file)
         
-        workflow["172"]["inputs"]["prompt"] = prompt
+        workflow["195"]["inputs"]["prompt"] = prompt
         workflow["186"]["inputs"]["image"] = image_path
+        workflow["188"]["inputs"]["api_key"] = GEMINI_API_KEY
 
         result = await queue_prompt(workflow)
         prompt_id = result["prompt_id"]
