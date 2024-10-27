@@ -1,0 +1,509 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 867039543519682,
+      "steps": 5,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "159",
+        1
+      ],
+      "positive": [
+        "159",
+        4
+      ],
+      "negative": [
+        "159",
+        5
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "201",
+        0
+      ],
+      "speak_and_recognation": true,
+      "clip": [
+        "35",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "lowres, worst quality, bad quality",
+      "speak_and_recognation": true,
+      "clip": [
+        "35",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "14": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "159",
+        3
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "30": {
+    "inputs": {
+      "ckpt_name": "SDXL_Lightning\\juggernautXL_v9Rdphoto2Lightning.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "32": {
+    "inputs": {
+      "stop_at_clip_layer": -2,
+      "clip": [
+        "30",
+        1
+      ]
+    },
+    "class_type": "CLIPSetLastLayer",
+    "_meta": {
+      "title": "CLIP Set Last Layer"
+    }
+  },
+  "35": {
+    "inputs": {
+      "model": [
+        "30",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ],
+      "lora_stack": [
+        "171",
+        0
+      ]
+    },
+    "class_type": "CR Apply LoRA Stack",
+    "_meta": {
+      "title": "💊 CR Apply LoRA Stack"
+    }
+  },
+  "52": {
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "61": {
+    "inputs": {
+      "control_net_name": "SDXL\\controlnet-scribble-sdxl-1.0\\diffusion_pytorch_model.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "65": {
+    "inputs": {
+      "strength": 0.85,
+      "start_percent": 0,
+      "end_percent": 0.75,
+      "positive": [
+        "163",
+        4
+      ],
+      "negative": [
+        "163",
+        5
+      ],
+      "control_net": [
+        "61",
+        0
+      ],
+      "image": [
+        "186",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "152": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 2,
+      "samples": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "LatentUpscaleBy",
+    "_meta": {
+      "title": "Upscale Latent By"
+    }
+  },
+  "153": {
+    "inputs": {
+      "seed": 867039543519682,
+      "steps": 6,
+      "cfg": 2,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "normal",
+      "denoise": 0.5,
+      "model": [
+        "167",
+        1
+      ],
+      "positive": [
+        "167",
+        4
+      ],
+      "negative": [
+        "167",
+        5
+      ],
+      "latent_image": [
+        "152",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "154": {
+    "inputs": {
+      "samples": [
+        "153",
+        0
+      ],
+      "vae": [
+        "167",
+        3
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "157": {
+    "inputs": {
+      "model": [
+        "35",
+        0
+      ],
+      "clip": [
+        "32",
+        0
+      ],
+      "vae": [
+        "30",
+        2
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "ToBasicPipe",
+    "_meta": {
+      "title": "ToBasicPipe"
+    }
+  },
+  "159": {
+    "inputs": {
+      "basic_pipe": [
+        "165",
+        0
+      ]
+    },
+    "class_type": "FromBasicPipe_v2",
+    "_meta": {
+      "title": "FromBasicPipe_v2"
+    }
+  },
+  "163": {
+    "inputs": {
+      "basic_pipe": [
+        "157",
+        0
+      ]
+    },
+    "class_type": "FromBasicPipe_v2",
+    "_meta": {
+      "title": "FromBasicPipe_v2"
+    }
+  },
+  "165": {
+    "inputs": {
+      "model": [
+        "163",
+        1
+      ],
+      "clip": [
+        "163",
+        2
+      ],
+      "vae": [
+        "163",
+        3
+      ],
+      "positive": [
+        "65",
+        0
+      ],
+      "negative": [
+        "65",
+        1
+      ]
+    },
+    "class_type": "ToBasicPipe",
+    "_meta": {
+      "title": "ToBasicPipe"
+    }
+  },
+  "167": {
+    "inputs": {
+      "basic_pipe": [
+        "165",
+        0
+      ]
+    },
+    "class_type": "FromBasicPipe_v2",
+    "_meta": {
+      "title": "FromBasicPipe_v2"
+    }
+  },
+  "171": {
+    "inputs": {
+      "switch_1": "On",
+      "lora_name_1": "SDXL\\style\\game_icon_diablo_style.safetensors",
+      "model_weight_1": 0.5,
+      "clip_weight_1": 0,
+      "switch_2": "On",
+      "lora_name_2": "SDXL\\pixel-art-xl-v1.1.safetensors",
+      "model_weight_2": 0.85,
+      "clip_weight_2": 0,
+      "switch_3": "Off",
+      "lora_name_3": "None",
+      "model_weight_3": 1,
+      "clip_weight_3": 1
+    },
+    "class_type": "CR LoRA Stack",
+    "_meta": {
+      "title": "💊 CR LoRA Stack"
+    }
+  },
+  "172": {
+    "inputs": {
+      "prompt": "(pixel art:1.1), cartoon illustration,simple black background, game icon,",
+      "speak_and_recognation": true
+    },
+    "class_type": "CR Prompt Text",
+    "_meta": {
+      "title": "⚙️ CR Prompt Text"
+    }
+  },
+  "185": {
+    "inputs": {
+      "value": 867039543519682,
+      "mode": false,
+      "action": "fixed",
+      "last_seed": 867039543519682
+    },
+    "class_type": "GlobalSeed //Inspire",
+    "_meta": {
+      "title": "Global Seed (Inspire)"
+    }
+  },
+  "186": {
+    "inputs": {
+      "image": "cap.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "187": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "154",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "188": {
+    "inputs": {
+      "prompt": [
+        "190",
+        0
+      ],
+      "input_type": "text",
+      "api_key": "",
+      "proxy": "",
+      "text_input": "",
+      "max_output_tokens": 1000,
+      "temperature": 0.4,
+      "speak_and_recognation": true
+    },
+    "class_type": "Gemini_Flash_002",
+    "_meta": {
+      "title": "Gemini Flash 002"
+    }
+  },
+  "190": {
+    "inputs": {
+      "text1": [
+        "195",
+        0
+      ],
+      "text2": [
+        "194",
+        0
+      ],
+      "separator": "."
+    },
+    "class_type": "CR Text Concatenate",
+    "_meta": {
+      "title": "🔤 CR Text Concatenate"
+    }
+  },
+  "194": {
+    "inputs": {
+      "prompt": "\n- 해당 내용을 생성형 ai 스테이블 디퓨전 영문 프롬프트\n- 별도의 추가 내용없이 프롬프트만 출력",
+      "speak_and_recognation": true
+    },
+    "class_type": "CR Prompt Text",
+    "_meta": {
+      "title": "⚙️ CR Prompt Text"
+    }
+  },
+  "195": {
+    "inputs": {
+      "prompt": "불타는 장갑에 별모양이 박혀있고, 장갑 색상은 파란색이야 그리고 되게 화려해",
+      "speak_and_recognation": true
+    },
+    "class_type": "CR Prompt Text",
+    "_meta": {
+      "title": "⚙️ CR Prompt Text"
+    }
+  },
+  "197": {
+    "inputs": {
+      "text": [
+        "190",
+        0
+      ],
+      "text2": "불타는 장갑에 별모양이 박혀있고, 장갑 색상은 파란색이야 그리고 되게 화려해.\n- 해당 내용을 생성형 ai 스테이블 디퓨전 영문 프롬프트\n- 별도의 추가 내용없이 프롬프트만 출력"
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "198": {
+    "inputs": {
+      "text": [
+        "188",
+        0
+      ],
+      "text2": "A pair of fiery blue gloves with star-shaped studs, very ornate. \n"
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "201": {
+    "inputs": {
+      "text1": [
+        "172",
+        0
+      ],
+      "text2": [
+        "188",
+        0
+      ],
+      "separator": " "
+    },
+    "class_type": "CR Text Concatenate",
+    "_meta": {
+      "title": "🔤 CR Text Concatenate"
+    }
+  },
+  "202": {
+    "inputs": {
+      "text": [
+        "201",
+        0
+      ],
+      "text2": "(pixel art:1.1), cartoon illustration,simple black background, game icon, A pair of fiery blue gloves with star-shaped studs, very ornate. \n"
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  }
+}
