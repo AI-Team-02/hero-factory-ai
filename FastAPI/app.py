@@ -31,6 +31,7 @@ app.add_middleware(
 )
 
 COMFY_UI_URL = "http://127.0.0.1:8188"
+
 WORKFLOW_PATH = os.path.abspath("../ComfyUI/workflow/2D_game_object_gemini_api.json")
 OUTPUT_DIR = os.path.abspath("../ComfyUI/output")
 UPLOAD_DIR = os.path.abspath("../ComfyUI/upload")
@@ -79,7 +80,7 @@ async def generate_image(image: UploadFile = File(...), prompt: str = Form(...))
         
         output = await get_image(prompt_id)
         
-        # 생성된 이미지 파일명 직접 가져오기
+        # 생성된 이미지 파일명 직접 가져오기 (Save Image)
         generated_image_filename = output["187"]["images"][0]["filename"]
         
         image_path = os.path.join(OUTPUT_DIR, generated_image_filename)
@@ -98,4 +99,4 @@ async def generate_image(image: UploadFile = File(...), prompt: str = Form(...))
 if __name__ == "__main__":
     import uvicorn
     logger.info("Starting the server")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=28000)
