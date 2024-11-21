@@ -2,7 +2,7 @@
 
 Follow these steps to set up the environment for your ComfyUI workflow:
 
-1. **Create a new virtual environment**:
+1️⃣ **Create a new virtual environment**:
     
 ```
 conda create -n [프로젝트명] python=3.10
@@ -10,7 +10,7 @@ conda activate [프로젝트명]
 
 ```
     
-2. **가상환경 위에서 PyTorch with CUDA support 설치**:
+2️⃣ **가상환경 위에서 PyTorch with CUDA support 설치**:
 - Visit the PyTorch website (https://pytorch.org/get-started/locally/) and get the correct installation command for your system. It should look something like this:
     
 ```
@@ -18,7 +18,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvi
 
 ```
     
-3. **가상환경 생성 후 가상환경 위에서 필요한 프로그램 설치**:
+3️⃣ **가상환경 생성 후 가상환경 위에서 필요한 프로그램 설치**:
 - Navigate to the directory containing your `requirements.txt` file and run:
     
 ```
@@ -26,9 +26,10 @@ pip install -r requirements.txt
 
 ```
     
-4. **사용하고싶은 모델 다운로드 후 각 디렉토리에 맞게 넣어준다.**
+4️⃣ **사용하고싶은 모델 다운로드 후 각 디렉토리에 맞게 넣어준다.**
 - ex) `ComfyUI/models/controlnet/` directory: control_v11p_sd15_lineart_fp16.safetensors
-5. **필요한 커스텀 노드 다운로드** :
+
+5️⃣ **필요한 커스텀 노드 다운로드** :
     
 - For each custom node, clone its repository into the `custom_nodes` directory:
 - 또는, ComfyUI-Manager를 통해 간편하게 다운로드 가능
@@ -39,9 +40,10 @@ git clone [해당 커스텀 노드 git url]
 
 ```
     
-6. **checkpoint model 다운로드**:
+6️⃣ **checkpoint model 다운로드**:
 - `ComfyUI/models/checkpoints/` directory.
-7. **Run ComfyUI**:
+
+7️⃣ **Run ComfyUI**:
 - Navigate to your ComfyUI directory and run:
 
 ```
