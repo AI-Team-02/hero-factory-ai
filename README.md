@@ -1,4 +1,4 @@
-# hero-factory-ai
+# 🧟 hero-factory-ai
 
 Follow these steps to set up the environment for your ComfyUI workflow:
 
@@ -51,7 +51,7 @@ python main.py
 
 ```
 
-## Custom Nodes
+## 🦜 Custom Nodes
 
 이 프로젝트를 실행하기 위해서는 다음 커스텀 노드들이 필요합니다.
 
@@ -66,7 +66,7 @@ python main.py
 * [Crystools](https://github.com/crystian/ComfyUI-Crystools) (#492)
 * [ComfyUI-tbox](https://github.com/ai-shizuka/ComfyUI-tbox) (#1200)
 
-## Models
+## 🐬 Models
 이 프로젝트를 실행하기 위해서는 다음 모델들이 필요합니다.
 
 ### Checkpoints
