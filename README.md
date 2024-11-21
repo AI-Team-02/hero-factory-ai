@@ -69,13 +69,13 @@ python main.py
 ## 🐬 Models
 이 프로젝트를 실행하기 위해서는 다음 모델들이 필요합니다.
 
-### Checkpoints
+### Checkpoint
 * [Juggernaut XL - Lightning V9](https://civitai.com/models/133005?modelVersionId=357609) ([Download](https://civitai.com/api/download/models/357609?type=Model&format=SafeTensor&size=full&fp=fp16))
 
 ### ControlNet
 * [controlnet-scribble-sdxl-1.0](https://huggingface.co/xinsir/controlnet-scribble-sdxl-1.0/tree/main) ([Download](https://huggingface.co/xinsir/controlnet-scribble-sdxl-1.0/blob/main/diffusion_pytorch_model.safetensors))
 
-### Loras
+### LoRA
 * [Pixel Art XL](https://civitai.com/models/120096/pixel-art-xl) ([Download](https://civitai.com/api/download/models/135931?type=Model&format=SafeTensor))
 * [【SDXL】Game Icon | Diablo Style | Dataset](https://civitai.com/models/209703/sdxlgame-icon-or-diablo-style-or-dataset) ([Download](https://civitai.com/api/download/models/236202?type=Model&format=SafeTensor))
 
